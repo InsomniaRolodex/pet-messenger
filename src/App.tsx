@@ -12,7 +12,8 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchMessages());
-  }, [dispatch])
+  }, [dispatch]);
+  
   return (
     <div className="App">
       <Header />

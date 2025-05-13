@@ -12,15 +12,6 @@ export function ChatScreen (): JSX.Element {
         <main className="main-container">
             <h1 className="visually-hidden">Чат</h1>
             <ChatUsers />
-            <section className="page-section users-section">
-                <aside className="users-section__container ">
-                    <ul className="users-section__list">
-                        <li className="users-section__element">
-                            <span className="users-section__name">{currentChat.name}</span>
-                        </li>
-                    </ul>
-                </aside>
-            </section>
             <section className="page-section chat-section">
                 <div className="chat-section__container ">
                     {currentMessages.map((messageObj) =>

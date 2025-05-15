@@ -15,7 +15,7 @@ export function ChatScreen (): JSX.Element {
             <section className="page-section chat-section">
                 <div className="chat-section__container ">
                     {currentMessages.map((messageObj) =>
-                        <div className={`${messageObj.id === -1 ? 'chat-section__element--own' : ''} chat-section__element`}>
+                        <div className={`${messageObj.id === -1 ? 'chat-section__element--own' : ''} chat-section__element`} key={messageObj.email}>
                             <span className="chat-section__name">{messageObj.name}</span>
                             <p className="chat-section__text">{messageObj.body}</p>
                         </div>)}

@@ -32,7 +32,8 @@ export const sendMessage = createAsyncThunk<void, string, { state: State, reject
             const message = {
                 ...currentChat,
                 id: -1,
-                body: text
+                body: text,
+                name: 'Вы',
             }
 
             const response = await fetch(`https://jsonplaceholder.typicode.com/comments/`, {
@@ -82,7 +83,7 @@ const messageSlice = createSlice({
     initialState,
     reducers: {
         setActiveChat: (state, action: PayloadAction<string>) => {
-            const currentUser = state.messages.find((messageObj) => messageObj.name === action.payload)
+            const currentUser = state.messages.find((messageObj) => messageObj.email === action.payload)
 
             if (currentUser) {
                 state.currentDialogue = currentUser;
@@ -91,6 +92,7 @@ const messageSlice = createSlice({
             }
         },
         addMessage: (state, action: PayloadAction<Message>) => {
+            console.log(action.payload)
             state.messages.push(action.payload);
         }
     },
@@ -100,7 +102,13 @@ const messageSlice = createSlice({
         })
         .addCase(fetchMessages.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.messages = action.payload
+            state.messages = action.payload;
+        })
+        .addCase(sendMessage.pending, (state) => {
+            state.isLoading = true;
+        })
+        .addCase(sendMessage.fulfilled, (state) => {
+            state.isLoading = false;
         })
     }
 })

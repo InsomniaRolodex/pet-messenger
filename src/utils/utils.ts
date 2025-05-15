@@ -10,5 +10,13 @@ export const findCurrentMessages = (activeUser: Message, messages:Messages) => {
             body: '',
         };
     }
-    return messages.filter((message) => message.name === activeUser.name);
+    return messages.filter((message) => message.email === activeUser.email);
+}
+
+export const findUniqueUsers = (messages:Messages) => {
+    const users: string[] = [];
+    messages.map(message => users.push(message.email));
+
+    const usersArr = [...new Set<string>(users)]
+    return usersArr;
 }

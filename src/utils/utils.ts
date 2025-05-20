@@ -1,14 +1,8 @@
 import { Message, Messages } from "../types/message";
 
-export const findCurrentMessages = (activeUser: Message, messages:Messages) => {
+export const findCurrentMessages = (activeUser: Message | null, messages:Messages) => {
     if (!activeUser) {
-        activeUser = {
-            postId: 0,
-            id: 0,
-            name: '',
-            email: '',
-            body: '',
-        };
+        return;
     }
     return messages.filter((message) => message.email === activeUser.email);
 }

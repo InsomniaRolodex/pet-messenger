@@ -1,0 +1,17 @@
+
+.chat-section {
+    flex-grow: 1;
+}
+
+.chat-section__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-section__empty {
+    width: fit-content;
+    display: block;
+    margin: auto;
+    align-self: center;
+}

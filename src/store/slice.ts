@@ -66,16 +66,16 @@ export type messagesProcess = {
     messages: Messages,
     isLoading: boolean,
     isError: boolean,
-    currentDialogue: Message,
+    currentDialogue: Message | null,
 };
 
 const defaultMessages: Messages = [];
 
 const initialState: messagesProcess = {
     messages: defaultMessages,
+    currentDialogue: defaultMessages[0],
     isLoading: false,
     isError: false,
-    currentDialogue: defaultMessages[0],
 };
 
 const messageSlice = createSlice({
@@ -84,6 +84,7 @@ const messageSlice = createSlice({
     reducers: {
         setActiveChat: (state, action: PayloadAction<string>) => {
             const currentUser = state.messages.find((messageObj) => messageObj.email === action.payload)
+            console.log(currentUser);
 
             if (currentUser) {
                 state.currentDialogue = currentUser;
@@ -103,6 +104,7 @@ const messageSlice = createSlice({
         .addCase(fetchMessages.fulfilled, (state, action) => {
             state.isLoading = false;
             state.messages = action.payload;
+            state.currentDialogue = null;
         })
         .addCase(sendMessage.pending, (state) => {
             state.isLoading = true;

@@ -1,0 +1,16 @@
+.main-header {
+    padding: 5px 10px;
+}
+
+.main-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav__logo-text {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}

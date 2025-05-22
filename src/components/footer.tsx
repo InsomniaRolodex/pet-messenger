@@ -28,7 +28,7 @@ export function Footer(): JSX.Element {
                     value={text}
                     onChange={handleInput}
                     required
-                    disabled={isSending}
+                    disabled={!isChatActive || isSending}
                 />
                 <button className="message-form__element message-form__button button" type="submit"
                     disabled={!isChatActive}

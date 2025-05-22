@@ -105,6 +105,10 @@ const messageSlice = createSlice({
             state.isLoading = false;
             state.messages = action.payload;
             state.currentDialogue = null;
+            state.isError = false;
+        })
+        .addCase(fetchMessages.rejected, (state) => {
+            state.isError = true;
         })
         .addCase(sendMessage.pending, (state) => {
             state.isLoading = true;

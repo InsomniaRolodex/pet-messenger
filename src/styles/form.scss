@@ -1,0 +1,44 @@
+.form-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form {
+    width: 40vw;
+    min-width: 300px;
+    height: 25vw;
+    padding: 15px;
+    background-color: rgb(143, 145, 186);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid rgba(170, 170, 181, 1);
+}
+
+.form__input-wrapper {
+    height: 25%;
+}
+
+.form__input {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.form__submit {
+    font-size: 1rem;
+    height: 25%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}

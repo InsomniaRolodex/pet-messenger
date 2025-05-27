@@ -67,6 +67,7 @@ export type messagesProcess = {
     isLoading: boolean,
     isError: boolean,
     currentDialogue: Message | null,
+    isLoggedIn: boolean,
 };
 
 const defaultMessages: Messages = [];
@@ -76,6 +77,7 @@ const initialState: messagesProcess = {
     currentDialogue: defaultMessages[0],
     isLoading: false,
     isError: false,
+    isLoggedIn: false,
 };
 
 const messageSlice = createSlice({
@@ -93,8 +95,10 @@ const messageSlice = createSlice({
             }
         },
         addMessage: (state, action: PayloadAction<Message>) => {
-            console.log(action.payload)
             state.messages.push(action.payload);
+        },
+        loginAction: (state) => {
+            state.isLoggedIn = true;
         }
     },
     extraReducers: builder => {
@@ -119,6 +123,6 @@ const messageSlice = createSlice({
     }
 })
 
-export const { setActiveChat, addMessage } = messageSlice.actions;
+export const { setActiveChat, addMessage, loginAction } = messageSlice.actions;
 
 export default messageSlice.reducer;

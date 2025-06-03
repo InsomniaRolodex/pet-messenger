@@ -11,7 +11,7 @@ function LoginForm(): JSX.Element {
     const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
       evt.preventDefault();
       if (emailRef.current && passwordRef.current) {
-        dispatch(loginAction())
+        dispatch(loginAction(emailRef.current.value))
       } else {
         toast.warn('Please enter correct email and password');
       }

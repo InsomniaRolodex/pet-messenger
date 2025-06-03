@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 .main-header {
     padding: 5px 10px;
 }
@@ -13,4 +15,16 @@
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.main-nav__name {
+    color: vars.$font-color;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.main-nav__name:hover {
+    opacity: 0.3;
+    transition-duration: 0.3s;
 }

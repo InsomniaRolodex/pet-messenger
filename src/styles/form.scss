@@ -42,3 +42,13 @@
     border: none;
     cursor: pointer;
 }
+
+.form__submit:hover {
+    transition-duration: 0.3s;
+    opacity: 0.5;
+}
+
+.form__submit:active {
+    transition-duration: 0.3s;
+    opacity: 0.8;
+}

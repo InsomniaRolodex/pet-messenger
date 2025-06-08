@@ -1,9 +1,9 @@
 @use 'variables' as vars;
 
 .users-section {
-    width: 25%;
-    min-width: 25%;
-    max-width: 50%;
+    // width: 25%;
+    // min-width: 25%;
+    // max-width: 50%;
     display: flex;
 }
 
@@ -19,20 +19,19 @@
     align-items: stretch;
     height: fit-content;
     min-height: 2rem;
-    border: 1px solid #676780;
+    border: 1px solid rgb(148, 187, 233);
     border-top: none;
-}
-
-.users-section__element:first-child {
-    border-top: 1px solid #676780;
+    border-right: none;
 }
 
 .users-section__element:last-child {
-    border-bottom: 1px solid #676780;
+    border: 1px solid rgb(148, 187, 233);
+    border-right: none;
 }
 
 .users-section__name {
     cursor: pointer;
+    font-size: .8rem;
     margin: 0;
     padding: 5px;
     width: 100%;

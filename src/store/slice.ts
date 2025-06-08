@@ -88,7 +88,7 @@ const messageSlice = createSlice({
     reducers: {
         setActiveChat: (state, action: PayloadAction<string>) => {
             const currentUser = state.messages.find((messageObj) => messageObj.email === action.payload)
-            console.log(currentUser);
+
 
             if (currentUser) {
                 state.currentDialogue = currentUser;
@@ -106,6 +106,7 @@ const messageSlice = createSlice({
         logoutAction: (state) => {
             state.email = '';
             state.isLoggedIn = false;
+            state.messages = [];
         }
     },
     extraReducers: builder => {

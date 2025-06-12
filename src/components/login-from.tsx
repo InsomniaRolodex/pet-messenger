@@ -11,7 +11,7 @@ function LoginForm(): JSX.Element {
     const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
       evt.preventDefault();
       if (emailRef.current && passwordRef.current) {
-        dispatch(loginAction(emailRef.current.value))
+        dispatch(loginAction({login: emailRef.current.value, password: passwordRef.current.value}))
       } else {
         toast.warn('Please enter correct email and password');
       }
@@ -31,7 +31,7 @@ function LoginForm(): JSX.Element {
           <label className='visually-hidden'>Password</label>
           <input className='login__input form__input' type='password' name='password' placeholder='Password' required
             ref={passwordRef}
-            pattern='(?=.*\d)(?=.*[a-zA-Z]).*'
+            pattern='(?=.*\d)(?=.*[a-zA-Zа-яА-Я]).*'
             title='Пароль должен содержать хотя бы одну букву и одну цифру'
             data-testid='passwordElement'
           />
